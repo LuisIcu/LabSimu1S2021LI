@@ -1,5 +1,5 @@
 /*
-Autor:  root
+Autor:  Luis Icú
 Compilador:  gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
 Para compilar: gcc calculadora.c -o calculadora
 Fecha: Tue Apr  6 23:32:00 UTC 2021
