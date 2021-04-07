@@ -21,7 +21,7 @@ int main(){
     int i=0;
 
     printf("Ingresar un número positivo: ");
-    scanf("%d",&N);
+    scanf("%f",&N);
 
     //Por si ingresa un número negativo
     if(N<0){
