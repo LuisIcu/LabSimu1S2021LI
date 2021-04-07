@@ -68,32 +68,36 @@ float divi(float A, float B){
 
 
 int main(){
-    float A=0;
-    float B=0;
-    int ind=0; //ind de indicador
+    int k=0;
+    while (k == 0){
+        float A=0;
+        float B=0;
+        int ind=0; //ind de indicador
 
-    printf("¿Qué operación desea realizar? \n");
-    printf("1. Suma \n");
-    printf("2. Resta \n");
-    printf("3. Multiplicación \n");
-    printf("4. División \n");
-    printf("0. Salir \n");
-    scanf("%d",&ind);
+        printf("¿Qué operación desea realizar? \n");
+        printf("1. Suma \n");
+        printf("2. Resta \n");
+        printf("3. Multiplicación \n");
+        printf("4. División \n");
+        printf("0. Salir \n");
+        scanf("%d",&ind);
 
-    if(ind == 1){
-        sum(A,B);
-    } else if(ind == 2){
-        rest(A,B);
-    } else if(ind == 3){
-        multi(A,B);
-    } else if(ind == 4){
-        divi(A,B);
-    } else if(ind == 0){
-        printf("Gracias \n");
-    } else {
-        printf("Ingrese un número válido \n");
+        if(ind == 1){
+            sum(A,B);
+        } else if(ind == 2){
+            rest(A,B);
+        } else if(ind == 3){
+            multi(A,B);
+        } else if(ind == 4){
+            divi(A,B);
+        } else if(ind == 0){
+            printf("Gracias \n");
+            k = 1;
+        } else {
+            printf("Ingrese un número válido \n");
+        }
     }
-
+    
 return 0;
 }
 
