@@ -12,10 +12,8 @@ Salida:
 //Librerías
 #include <stdio.h>
 
-//Numerar pasos del pseudocódidgo
-
-float sum(float A, float B){
-    float sumtot=0;
+float sum(float A, float B){ //La función suma
+    float sumtot=0; //El total de la suma
 
     printf("Ha seleccionado A+B \n");
     printf("Ingresar A: \n");
@@ -27,8 +25,8 @@ float sum(float A, float B){
     return sumtot;
 }
 
-float rest(float A, float B){
-    float restot=0;
+float rest(float A, float B){ //La función resta
+    float restot=0; //El total de la resta
 
     printf("Ha seleccionado A-B \n");
     printf("Ingresar A: \n");
@@ -40,8 +38,8 @@ float rest(float A, float B){
     return restot;
 }
 
-float multi(float A, float B){
-    float multitot=0;
+float multi(float A, float B){ //La función de multiplicación
+    float multitot=0; //El total de la multiplicación
     
     printf("Ha seleccionado A*B \n");
     printf("Ingresar A: \n");
@@ -53,8 +51,8 @@ float multi(float A, float B){
     return multitot;
 }
 
-float divi(float A, float B){
-    float divtot=0;
+float divi(float A, float B){ //La función de división
+    float divtot=0; //El total de la división
 
     printf("Ha seleccionado A/B \n");
     printf("Ingresar A: \n");
@@ -69,11 +67,12 @@ float divi(float A, float B){
 
 int main(){
     int k=0;
-    while (k == 0){
+    while (k == 0){ //Va a funcionar hasta que le cambiemos el valor al k
         float A=0;
         float B=0;
         int ind=0; //ind de indicador
 
+        //Imprimimos cosas y pedimos qué operación se quiere realizar
         printf("¿Qué operación desea realizar? \n");
         printf("1. Suma \n");
         printf("2. Resta \n");
@@ -82,17 +81,18 @@ int main(){
         printf("0. Salir \n");
         scanf("%d",&ind);
 
+        //Verificamos
         if(ind == 1){
-            sum(A,B);
+            sum(A,B); //Va a la función suma
         } else if(ind == 2){
-            rest(A,B);
+            rest(A,B); //Va a la función resta
         } else if(ind == 3){
-            multi(A,B);
+            multi(A,B); //Va a la función multiplicación
         } else if(ind == 4){
-            divi(A,B);
+            divi(A,B); //Va a la función división
         } else if(ind == 0){
             printf("Gracias \n");
-            k = 1;
+            k = 1; //Si se quiere salir, se cambia el valor de k y sale del while
         } else {
             printf("Ingrese un número válido \n");
         }
@@ -100,5 +100,7 @@ int main(){
     
 return 0;
 }
+
+
 
 
