@@ -21,15 +21,11 @@ float dP=0.2; //Incerteza en P
 
 //Iniciamos variables globales
 int n = sizeof(datosV)/sizeof(datosV[0]); //número de datos
-float A, B, r, a, b, delta, desvi, dA, dB, da, db;
+float A, B, r, a, b, delta;
 
 //Listas que nos van a servir después
 float datosLnV[6];
 float datosLnP[6];
-float dLnV[6];
-float dLnP[6];
-float incerteza[6];
-
 
 //Prototipos de funciones
 void converLn(float datos[], float datosLn[]); //pasar de lista P(x) a Q(ln(x))
@@ -76,7 +72,7 @@ void main(){
     //Imprimiendo la ecuación lineal
     printf("Tenemos entonces la ecuación:\n");
     printf("y = %f x + %f\n",A,B);
-    printf("Coeficciente de determinacion: %f\n",r*r);
+    printf("Coeficiente de correlación: %f\n",r*r);
 
     //Recuperando las constantes a y b
     a = -A;
