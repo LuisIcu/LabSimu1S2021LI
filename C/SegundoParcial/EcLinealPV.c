@@ -84,7 +84,8 @@ void main(){
     printf("Tenemos entonces: a= %f y b= %f\n",a,b);
     printf("La ecuación final es: PV^(%f)=%f\n",a,b);
 
-    printf("Ingresar el valor de V:\n",&vnuevo);
+    printf("Ingresar el valor de V:\n");
+    scanf("%f\n",&vnuevo);
 
     pnuevo = b/pow(vnuevo,a);
 
