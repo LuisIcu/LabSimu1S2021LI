@@ -21,7 +21,7 @@ float dP=0.2; //Incerteza en P
 
 //Iniciamos variables globales
 int n = sizeof(datosV)/sizeof(datosV[0]); //número de datos
-float A, B, r, a, b, delta, vnuevo, pnuevo;
+float A, B, r, a, b, vnuevo, pnuevo;
 
 //Listas que nos van a servir después
 float datosLnV[6];
@@ -33,8 +33,8 @@ void imprimvec(float lista[]); //Imprimir los datos de un vector
 float sumdata(float datos[]); //Sumar los datos de un vector
 float sumdatamul(float datos1[], float datos2[]); //Toma los datos de dos listas, multiplica por orden y suma
 float deltaM(float datos[]); //Obtiene el denominador delta usada para hallar A y B
-float pendiente(float datos1[], float datos2[], float deltaN); //Obtiene la pendiente de la regresión lineal
-float intersecto(float datos1[], float datos2[], float deltaN); //Obtiene el intersecto de la regresión lineal
+float pendiente(float datos1[], float datos2[]); //Obtiene la pendiente de la regresión lineal
+float intersecto(float datos1[], float datos2[]); //Obtiene el intersecto de la regresión lineal
 
 void main(){
 
@@ -63,9 +63,8 @@ void main(){
     printf("ln(P) = Aln(V)+B\n");
 
     //Obtenemos las constantes
-    delta = deltaM(datosLnV);
-    A=pendiente(datosLnV,datosLnP,delta);
-    B=intersecto(datosLnV,datosLnP,delta);
+    A=pendiente(datosLnV,datosLnP)/deltaM(datosLnV);
+    B=intersecto(datosLnV,datosLnP)/deltaM(datosLnV);
     r=(n*sumdatamul(datosLnV,datosLnP)-sumdata(datosLnV)*sumdata(datosLnP))/sqrt((n*sumdatamul(datosLnV,datosLnV)-sumdata(datosLnV)*sumdata(datosLnV))*(n*sumdatamul(datosLnP,datosLnP)-sumdata(datosLnP)*sumdata(datosLnP)));
 
 
@@ -84,12 +83,12 @@ void main(){
     printf("Tenemos entonces: a= %f y b= %f\n",a,b);
     printf("La ecuación final es: PV^(%f)=%f\n",a,b);
 
-    printf("Ingresar el valor de V:\n",&vnuevo);
+    printf("Ingresar valor deseado de V\n");
+    scanf("%f\n",&vnuevo);
 
     pnuevo = b/pow(vnuevo,a);
 
-    printf("El valor asociado a V=%f es P=%f",vnuevo,pnuevo);
-
+    printf("El valor de P es: %f\n",pnuevo);
 }
 
 
@@ -137,16 +136,16 @@ float deltaM(float datos[]){
 }
 
 
-float pendiente(float datos1[], float datos2[], float deltaN){
+float pendiente(float datos1[], float datos2[]){
     float pend;
-    pend = (n*sumdatamul(datos1, datos2)-sumdata(datos1)*sumdata(datos2))/(deltaN);
+    pend = (n*sumdatamul(datos1, datos2)-sumdata(datos1)*sumdata(datos2));
     return pend;
 }   
 
 
-float intersecto(float datos1[], float datos2[], float deltaN){
+float intersecto(float datos1[], float datos2[]){
     float inter;
-    inter = (sumdatamul(datos1,datos1)*sumdata(datos2)-sumdata(datos1)*sumdatamul(datos1,datos2))/(deltaN);
+    inter = (sumdatamul(datos1,datos1)*sumdata(datos2)-sumdata(datos1)*sumdatamul(datos1,datos2));
     return inter;
 }
 

@@ -79,7 +79,7 @@ double serie2(int n){
     scanf("%d",&n);
 
     for (int i = 2; i <= n; i++){
-        totser2 += 3/(i-1);
+        totser2 += 3*pow(i-1,-1);
     }
     printf("El valor de la sumatoria es:\n");
     printf("%f\n", totser2);
