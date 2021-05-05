@@ -24,6 +24,6 @@ echo "*/" >> $nuevoarch
 echo " " >> $nuevoarch
 echo "//Librerías" >> $nuevoarch
 echo "#include <stdio.h>" >> $nuevoarch
+echo "#include <math.h>" >> $nuevoarch
 echo "" >> $nuevoarch
-echo "//Numerar pasos del pseudocódidgo" >> $nuevoarch
 
