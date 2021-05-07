@@ -3,10 +3,10 @@ Autor:  luisicu
 Compilador:  gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
 Para compilar: gcc series.c -lm -o series
 Fecha: Sun Apr 18 00:09:02 CST 2021
-Librerías: 
-Resumen: 
-Entrada: 
-Salida: 
+Librerías: math.h, stdio.h
+Resumen: Calculadora de distintas series
+Entrada: El límite superior n de las series
+Salida: La respectiva serie
 */
  
 //Librerías
@@ -19,7 +19,7 @@ double serie2(int n);
 double serie3(int n);
 double serie4(int n);
 
-int main(){
+void main(){
     int k=0;
     while (k == 0){ //Va a funcionar hasta que le cambiemos el valor al k
         int n=0; //Hasta el n a sumar
@@ -50,9 +50,10 @@ int main(){
             printf("Ingrese un número válido \n");
         }
     }
-    
-return 0;
+
 }
+
+//Todas las series es escribir la respectiva serie con un for que suma hasta el valor desado
 
 double serie1(int n){
     double totser1=0;

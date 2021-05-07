@@ -25,7 +25,7 @@ void main(){
     printf("Introducir C: ");
     scanf("%d",&C);
     signo = permutacion(A,B,C);
-    printf("El signo de la permutación es: %d\n",signo);
+    printf("El signo de la permutación [%d,%d,%d] es: %d\n",A,B,C,signo);
 }
 
 int permutacion(int val1, int val2, int val3){
