@@ -1,7 +1,7 @@
 /*
 Autor:  luisicu
 Compilador:  gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
-Para compilar: gcc ordenamiento2.c -lm -o ordenamiento2
+Para compilar: gcc ordenamiento2.c -lm
 Fecha: Thu May  6 12:52:19 CST 2021
 Librerías: stdio.h, math.h
 Resumen: Se ingresan 5 valores enteros. El programa lo muestra ordenado ascendentemente

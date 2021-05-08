@@ -1,7 +1,7 @@
 /*
 Autor:  luisicu
 Compilador:  gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
-Para compilar: gcc ordenamiento1.c -lm -o ordenamiento1
+Para compilar: gcc ordenamiento1.c -lm 
 Fecha: Fri May  7 00:53:16 CST 2021
 Librerías: stdio.h, math.h
 Resumen: Se ingresan 10 datos pares entre 2 y 20. El usuario decide verlos en forma ascendente o descendente

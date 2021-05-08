@@ -1,7 +1,7 @@
 /*
 Autor:  luisicu
 Compilador:  gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
-Para compilar: gcc matrices3x3.c -lm -o matrices3x3
+Para compilar: gcc matrices3x3.c -lm
 Fecha: Wed May  5 18:32:01 CST 2021
 Librerías: stdio.h, math.h
 Resumen: Calculadora de varias operaciones con matrices de dim3
@@ -15,7 +15,8 @@ Salida: La operación deseada
 #include <math.h>
 
 //Variables
-
+float matA[3][3], matB[3][3], kmat[3][3], summat[3][3], resmat[3][3], mulmat[3][3], transmat[3][3];
+float cons, resultado;
 
 
 //Funciones
@@ -31,88 +32,43 @@ void transpuesta(float mat[3][3], float transmat[3][3]); //Muestra el determinan
 
 
 void main(){
-    int sal=0;
-    while (sal == 0){ //Va a funcionar hasta que le cambiemos el valor al k
-        int ind=0; //ind de indicador
-        float totmat[3][3], matA[3][3], matB[3][3];
-        float cons, resultado;
+    printf("--Operaciones con matrices 3x3--\n");
+    printf("Ingresar los valores de matA: \n");
+    ingresar(matA);
+    printf("Ingresar los valores de matB: \n");
+    ingresar(matB);
+    printf("Ingresar una constante: \n");
+    scanf("%f",&cons);
 
-        //Imprimimos cosas y pedimos qué operación se quiere realizar
-        printf("--Operaciones con matrices 3x3--\n");
-        printf("¿Qué desea realizar? \n");
-        printf("1. Multiplicar una matriz por una constante \n");
-        printf("2. Sumar dos matrices \n");
-        printf("3. Restar dos matrices \n");
-        printf("4. Multiplicar dos matrices \n");
-        printf("5. Obtener el determinante de una matriz \n");
-        printf("6. Obtener la transpuesta de una matriz \n");
-        printf("0. Salir \n");
-        scanf("%d",&ind);
+    //k*matA
+    printf("1. k*matA\n");
+    constante(matA, kmat, cons);
+    imprimir(kmat);
 
-        //Verificamos
-        if(ind == 1){//multiplicar por constante
-            printf("Seleccionó kA\n");
-            printf("Ingresar k: \n");
-            scanf("%f",&cons);
-            printf("Ingresar los valores de A: \n");
-            ingresar(matA);
-            constante(matA, totmat, cons);
-            imprimir(totmat);
-        } 
-        
-        else if(ind == 2){//A+B
-            printf("Seleccionó A+B\n");
-            printf("Ingresar los valores de A: \n");
-            ingresar(matA);
-            printf("Ingresar los valores de B: \n");
-            ingresar(matB);
-            suma(matA,matB,totmat);
-            imprimir(totmat);
-        } 
-        
-        else if(ind == 3){//A-B
-            printf("Seleccionó A-B\n");
-            printf("Ingresar los valores de A: \n");
-            ingresar(matA);
-            printf("Ingresar los valores de B: \n");
-            ingresar(matB);
-            resta(matA,matB,totmat);
-            imprimir(totmat);
-        } 
-        
-        else if(ind == 4){//AB
-            printf("Seleccionó AB\n");
-            printf("Ingresar los valores de A: \n");
-            ingresar(matA);
-            printf("Ingresar los valores de B: \n");
-            ingresar(matB);
-            multi(matA,matB,totmat);
-            imprimir(totmat);
-        } 
-        
-        else if(ind == 5){//det(A)
-            printf("Seleccionó det(A)\n");
-            printf("Ingresar los valores de A: \n");
-            ingresar(matA);
-            resultado = determinante(matA);
-            printf("det(A)= %f\n", resultado);
-        } 
-        
-        else if(ind == 6){//A^(t)
-            printf("Seleccionó A^(t)\n");
-            printf("Ingresar los valores de A: \n");
-            ingresar(matA);
-            transpuesta(matA, totmat);
-            imprimir(totmat);
-        } 
-        
-        else if(ind == 0){
-            printf("Gracias \n");
-            sal = 1; //Si se quiere salir, se cambia el valor de k y sale del while
-        } else {
-            printf("Ingrese un número válido \n");
-        }
-    }
+    //Suma A+B
+    printf("2. matA+matB\n");
+    suma(matA,matB,summat);
+    imprimir(summat);
+
+    //Resta A-B
+    printf("3. matA-matB\n");
+    resta(matA,matB,resmat);
+    imprimir(resmat);
+
+    //Multiplicación AB
+    printf("4. matA*matB\n");
+    multi(matA,matB,mulmat);
+    imprimir(mulmat);
+
+    //detA
+    printf("5. det(A)\n");
+    resultado = determinante(matA);
+    printf("det(A)= %f\n", resultado);
+
+    //B transpuesta
+    printf("6. matB^t\n");
+    transpuesta(matA, transmat);
+    imprimir(transmat);
 }
 
 
@@ -189,7 +145,7 @@ int permutacion(int val1, int val2, int val3){ //(signo de Levi-Civita)
     return signo;
 }
 
-float determinante(float mat[3][3]){//Saca el determinante de la matriz
+float determinante(float mat[3][3]){//Saca el determinante de la matriz por el método de Levi-Civita
     float det=0;
     for (int i=0; i<3; i++){
         for (int j=0; j<3; j++){

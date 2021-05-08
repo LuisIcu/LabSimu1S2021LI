@@ -1,7 +1,7 @@
 /*
 Autor:  luisicu
 Compilador:  gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
-Para compilar: gcc 5factorial.c -o 5factorial
+Para compilar: gcc 5factorial.c -o
 Fecha: Fri Apr 23 17:14:35 CST 2021
 Librerías: stdio.h
 Resumen: Calculadora del factorial de un número

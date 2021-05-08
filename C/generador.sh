@@ -14,7 +14,7 @@ fecha=$(date)
 echo "/*" >> $nuevoarch
 echo "Autor:  $autor" >> $nuevoarch
 echo "Compilador:  $compilador" >> $nuevoarch
-echo "Para compilar: gcc $nuevoarch -lm -o $nombre" >> $nuevoarch
+echo "Para compilar: gcc $nuevoarch -lm" >> $nuevoarch
 echo "Fecha: $fecha" >> $nuevoarch
 echo "Librerías: " >> $nuevoarch
 echo "Resumen: " >> $nuevoarch

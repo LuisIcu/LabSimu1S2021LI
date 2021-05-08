@@ -1,7 +1,7 @@
 /*
 Autor:  luisicu
 Compilador:  gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
-Para compilar: gcc vectores3x3.c -lm -o vectores3x3
+Para compilar: gcc vectores3x3.c -lm 
 Fecha: Wed May  5 15:37:23 CST 2021
 Librerías: stdio.h, math.h
 Resumen: Calculadora de distintas operaciones con vectores: magnitud, suma, producto punto, producto cruz
@@ -14,7 +14,7 @@ Salida: La operación resultante
 #include <math.h>
 
 //Variables
-float A[3], B[3], totvec[3];
+float A[3], B[3], sumvec[3], cruzvec[3];
 int ind;
 float magnusA, magnusB, result;
 
@@ -30,67 +30,35 @@ void vectorial(float vector1[], float vector2[], float vectorcruz[]); //Da el pr
 
 
 void main(){
-    int k=0;
-    while (k == 0){ //Va a funcionar hasta que le cambiemos el valor al k
-        //Imprimimos cosas y pedimos qué operación se quiere realizar
-        printf("--Operaciones con 2 vectores de dimensión 3--\n");
-        printf("¿Qué operación desea realizar?\n");
-        printf("1. Ver la magnitud de cada vector\n");
-        printf("2. Sumar los vectores\n");
-        printf("3. El producto escalar entre los vectores\n");
-        printf("4. El producto vectorial AxB\n");
-        printf("0. Salir\n");
-        scanf("%d",&ind);
+    printf("--Operaciones con 2 vectores de dimensión 3--\n");
+    printf("Ingrese el vector A: \n");
+    ingvector(A);
+    printf("Ingrese el vector B: \n");
+    ingvector(B);
 
-        //Verificamos
-        if(ind == 1){ //Magnitud
-            printf("Ingrese el vector A: \n");
-            ingvector(A);
-            printf("Ingrese el vector B: \n");
-            ingvector(B);
-            magnusA = magnitud(A);
-            magnusB = magnitud(B);
-            printf("--1. Magnitudes--\n");
-            printf("La magnitud del vector A es: %f\n", magnusA);
-            printf("La magnitud del vector B es: %f\n", magnusB);
-        } 
-        
-        else if(ind == 2){ //Suma
-            printf("Ingrese el vector A: \n");
-            ingvector(A);
-            printf("Ingrese el vector B: \n");
-            ingvector(B);
-            suma(A,B, totvec);
-            printf("El vector suma resultante es:\n");
-            imprimir(totvec);
-        } 
-        
-        else if(ind == 3){ //Producto escalar
-            printf("Ingrese el vector A: \n");
-            ingvector(A);
-            printf("Ingrese el vector B: \n");
-            ingvector(B);
-            result = escalar(A,B);
-            printf("El producto escalar es: %f\n",result);
-        } 
-        
-        else if(ind == 4){ //Producto vectorial
-            printf("Ingrese el vector A: \n");
-            ingvector(A);
-            printf("Ingrese el vector B: \n");
-            ingvector(B);
-            vectorial(A,B,totvec);
-            printf("El vector AxB es:\n");
-            imprimir(totvec);
-        } 
-        
-        else if(ind == 0){
-            printf("Gracias \n");
-            k = 1; //Si se quiere salir, se cambia el valor de k y sale del while
-        } else {
-            printf("Ingrese un número válido \n");
-        }
-    }
+    //Magnitudes
+    magnusA = magnitud(A);
+    magnusB = magnitud(B);
+    printf("--1. Magnitudes--\n");
+    printf("La magnitud del vector A es: %f\n", magnusA);
+    printf("La magnitud del vector B es: %f\n", magnusB);
+
+    //Suma
+    printf("--2. Suma--\n");
+    suma(A,B, sumvec);
+    printf("El vector suma resultante es:\n");
+    imprimir(sumvec);
+
+    //Producto escalar
+    printf("--3. Producto escalar--\n");
+    result = escalar(A,B);
+    printf("El producto escalar es: %f\n",result);
+
+    //Producto vectorial
+    printf("--4. Producto vectorial--\n");
+    vectorial(A,B,cruzvec);
+    printf("El vector AxB es:\n");
+    imprimir(cruzvec);
 }
 
 
@@ -100,7 +68,7 @@ void imprimir(float vector[]){ //Imprime un vector
     for (int i=0; i<3; i++){
         printf("%f, ",vector[i]);
     }
-    printf("]");
+    printf("]\n");
 } 
 
 void ingvector(float vector[]){ //Ingresa los datos de un vector 3x3
