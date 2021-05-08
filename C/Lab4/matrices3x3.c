@@ -67,7 +67,7 @@ void main(){
 
     //B transpuesta
     printf("6. matB^t\n");
-    transpuesta(matA, transmat);
+    transpuesta(matB, transmat);
     imprimir(transmat);
 }
 
